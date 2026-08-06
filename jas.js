@@ -31,7 +31,7 @@ if (playPromise !== undefined) {
   text.style.color = "#ffff00"; 
   
   btn.style.backgroundColor = "#ff6600"; 
-  btn.style.color = "#ff00ff"; 
+  btn.style.color = "#8f19df"; 
   btn.style.fontWeight = "bold";
 
   
