@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    /* Default clean, professional look */
+    body {
+      background-color: #f4f6f8;
+      color: #333333;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding-top: 50px;
+      transition: background-color 0.1s ease;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    p {
+      color: #7f8c8d;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Circular orbit animation */
+    @keyframes circleOrbit {
+      0% {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(120px) rotate(-360deg);
+      }
+    }
+
+    .orbit-animation {
+      display: inline-block;
+      animation: circleOrbit 3s linear infinite;
+    }
+
+    .picture-area {
+      margin-top: 150px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="mainTitle"></h1>
+  <p id="mainText">dapat tayo ay nagtutulungan</p>
+
+  <!-- Button starts circling automatically -->
+  <button id="gregButton" class="orbit-animation" onclick="showGreg()">Click if you miss Greg</button>
+
+  <!-- Centered picture area -->
+  <div class="picture-area">
+    <img id="gregPic" src="greg.jpg" alt="Greg" width="500" hidden>
+  </div>
+
+  <script>
+    function showGreg() {
+      var btn = document.getElementById('gregButton');
+      var img = document.getElementById('gregPic');
+      var title = document.getElementById('mainTitle');
+      var text = document.getElementById('mainText');
+
+      // 1. Stop the button's circle animation
+      btn.classList.remove('orbit-animation');
+
+      // 2. Change page to eye-hurting red/orange/neon colors
+      document.body.style.backgroundColor = "#ff0000"; // Blinding red
+      title.style.color = "#00ff00"; // Harsh neon green
+      text.style.color = "#ffff00";  // Harsh neon yellow
+      
+      btn.style.backgroundColor = "#ff6600"; // Bright orange
+      btn.style.color = "#ff00ff";         // Neon magenta text
+      btn.style.fontWeight = "bold";
+
+      // 3. Unhide Greg's picture and start its circle animation
+      img.hidden = false;
+      img.classList.remove('orbit-animation');
+      void img.offsetWidth; // Force reset animation
+      img.classList.add('orbit-animation');
+    }
+  </script>
+
+</body>
+</html>
