@@ -1,42 +1,92 @@
-function showGreg() {
-  var btn = document.getElementById('gregButton');
-  var img = document.getElementById('gregPic');
-  var title = document.getElementById('mainTitle');
-  var text = document.getElementById('mainText');
-  
-  
-  var greg2 = document.getElementById('greg2Img');
-  greg2.style.display = 'none';
-  var maintitle = document.getElementById('mainTitle');
-  maintitle.style.display= 'none';
-  var music = document.getElementById('gregMusic');
-var playPromise = music.play();
+var firstSelection = null;
 
-if (playPromise !== undefined) {
-  playPromise.then(_ => {
-    
-  }).catch(error => {
-    
-    console.log("Playback blocked or failed");
-  });
+function selectCard(cardElement, cardType) {
+    // Reveal image temporarily when clicked
+    cardElement.style.border = "3px solid gold";
+
+    if (firstSelection === null) {
+        firstSelection = { element: cardElement, type: cardType };
+    } else {
+        var secondSelection = { element: cardElement, type: cardType };
+
+        if (firstSelection.type === secondSelection.type && firstSelection.element !== secondSelection.element) {
+            // MATCH FOUND!
+            document.getElementById("puzzleMsg").style.color = "green";
+            document.getElementById("puzzleMsg").innerText = "Match found! Entering the party...";
+            
+            setTimeout(function() {
+                // Hide puzzle and show party screen
+                document.getElementById("puzzleScreen").style.display = "none";
+                document.getElementById("partyScreen").style.display = "block";
+            }, 1000);
+
+        } else {
+            // WRONG MATCH
+            document.getElementById("puzzleMsg").style.color = "red";
+            document.getElementById("puzzleMsg").innerText = "Wrong match! Try again.";
+            
+            var prevCard = firstSelection.element;
+            setTimeout(function() {
+                prevCard.style.border = "3px solid #333";
+                secondSelection.element.style.border = "3px solid #333";
+            }, 500);
+        }
+        firstSelection = null;
+    }
 }
 
+function showGreg() {
+    var btn = document.getElementById('gregButton');
+    var img = document.getElementById('gregPic');
+    var title = document.getElementById('mainTitle');
+    var text = document.getElementById('mainText');
+    var greg2 = document.getElementById('greg2Img');
 
-  
-  btn.classList.remove('orbit-animation');
+    greg2.style.display = 'none';
+    var maintitle = document.getElementById('mainTitle');
+    maintitle.style.display = 'none';
+    
+    var music = document.getElementById('gregMusic');
+    var playPromise = music.play();
 
- 
-  document.body.style.backgroundColor = "#ff0000"; 
-  title.style.color = "#00ff00"; 
-  text.style.color = "#ffff00"; 
-  
-  btn.style.backgroundColor = "#ff6600"; 
-  btn.style.color = "#8f19df"; 
-  btn.style.fontWeight = "bold";
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+        }).catch(error => {
+            console.log("Playback blocked or failed");
+        });
+    }
 
-  
-  img.hidden = false;
-  img.classList.remove('orbit-animation');
-  void img.offsetWidth; 
-  img.classList.add('orbit-animation');
+    const messages = [
+        "Lahat kau nakapasa ako lang BAGSAK!!.",
+        "Walang Greg dito, baka nasa kusina.",
+        "Error 404: Greg not found (he's eating)",
+        "Miss mo si greg noh",
+        "Gusto mo ba si Greg? Click mo na!",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    btn.innerText = messages[randomIndex];
+
+    btn.classList.remove('orbit-animation');
+
+    // PARTY LIGHT FLASH EFFECT
+    const partyColors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"];
+    setInterval(function() {
+        var randomColor = partyColors[Math.floor(Math.random() * partyColors.length)];
+        document.body.style.backgroundColor = randomColor;
+    }, 1);
+
+    title.style.color = "#ffffff";
+    text.style.color = "#ffffff";
+
+    btn.style.backgroundColor = "#ff6600";
+    btn.style.color = "#8f19df";
+    btn.style.fontWeight = "bold";
+
+    img.hidden = false;
+    img.classList.remove('orbit-animation');
+    void img.offsetWidth;
+    img.classList.add('orbit-animation');
+
+    img.style.display = "block"; // This unhides it and locks it directly in the center
 }

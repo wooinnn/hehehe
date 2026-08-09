@@ -1,28 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Ako si Greg</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style.css">
+    <title>Ako si Greg</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h5 id="mainTitle">DAPAT TAYO AY NAGTUTULUNGAN</h5>
-  <p id="mainText"></p>
+    <!-- MATCHING PUZZLE SCREEN (Shown first) -->
+    <div id="puzzleScreen">
+        <h3 id="puzzleTitle">AKO SI GREG</h3>
+        <p>HANAPIN MO AKO</p>
+        
+        <div class="puzzle-container">
+            <div class="card" onclick="selectCard(this, 'gregA')">
+                <img src="greg.jpg" class="card-img" alt="Greg">
+            </div>
+            <div class="card" onclick="selectCard(this, 'gregB')">
+                <img src="greg2.jpg" class="card-img" alt="Greg 2">
+            </div>
+            <div class="card" onclick="selectCard(this, 'gregC')">
+                <img src="greg.jpg" class="card-img" alt="Greg 3">
+            </div>
+            <div class="card" onclick="selectCard(this, 'gregA')">
+                <img src="greg.jpg" class="card-img" alt="Greg">
+            </div>
+            <div class="card" onclick="selectCard(this, 'gregB')">
+                <img src="greg2.jpg" class="card-img" alt="Greg 2">
+            </div>
+            <div class="card" onclick="selectCard(this, 'gregC')">
+                <img src="greg.jpg" class="card-img" alt="Greg 3">
+            </div>
+        </div>
+        <p id="puzzleMsg" style="font-weight: bold;"></p>
+    </div>
 
-  
-  <button id="gregButton" class="orbit-animation" onclick="showGreg()">Click if you miss Greg</button>
-  
-  <img id="greg2Img" src="greg2.jpg" width="500" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;">
+    <!-- PARTY SCREEN (Hidden until puzzle is solved) -->
+    <div id="partyScreen" style="display: none;">
+        <h1 id="mainTitle" style="text-align: center; font-size: 70px;">NAHANAP MOKO!!</h1>
+        <p id="mainText"></p>
 
- 
-  <div class="picture-area">
- <audio id="gregMusic" src="greg.mp3" preload="auto" loop></audio>
- <audio id="gregMusic2" src="gregmusic2.mp3" preload="auto" loop></audio>
-    <img id="gregPic" src="greg.jpg" alt="Greg" width="500" hidden>
-  </div>
+        <button id="gregButton" style="display: block; margin: 0px auto; font-size: 30px;" onclick="showGreg()">Click if you miss Greg</button>
 
-  
-  <script src="jas.js"></script>
+        <img id="greg2Img" src="greg2.jpg" width="700" height="500" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; object-fit: middle;">
+
+        <div class="picture-area">
+            <audio id="gregMusic" src="greg.mp3" preload="auto" loop></audio>
+            <audio id="gregMusic2" src="gregmusic2.mp3" preload="auto" loop></audio>
+            <img id="gregPic" src="greg.jpg" alt="Greg" width="500" hidden>
+        </div>
+    </div>
+
+    <script src="jas.js"></script>
 </body>
 </html>
