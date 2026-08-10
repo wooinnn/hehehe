@@ -174,7 +174,7 @@ html, body {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* Beautiful Hover State */
+
 .menu-btn:hover {
     transform: scale(1.08) translateY(-4px); 
     background: linear-gradient(135deg, #ff2da1, #ff85c4, #ffb18d);
@@ -182,7 +182,7 @@ html, body {
     border-color: #ffffff;
 }
 
-/* Click / Active State */
+
 .menu-btn:active {
     transform: scale(0.98) translateY(1px); 
     box-shadow: 0 5px 15px rgba(255, 20, 147, 0.6);
