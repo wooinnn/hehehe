@@ -187,7 +187,14 @@ html, body {
     margin: 0 auto;
     border-radius: 10px;
 }
-
+#lightTitle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 100px;
+    color: rgb(255, 0, 0);
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 40px;
+}
 #startScreen {
     position: fixed;
     top: 0;
