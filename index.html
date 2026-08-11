@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ako si Greg</title>
+    <title>GREGY GAMES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   
-    <div id="startScreen">
-        <h1 class="menutitle">greg memories</h1>
-        <div class="menu-buttons">
-            <button class="menu-btn" onclick="startGame()">Start </button>
-            <button class="menu-btn" onclick="exitGame()">Exit</button>
-        </div>
-    </div>
+   <div id="startScreen">
+    <h1 class="menutitle">GREGY GAMES</h1>
 
-  
+ 
+   <img src="https://media.giphy.com/media/gUNA7QH4AeLde/giphy.gif" alt="BMO Pixel Art" class="start-pixel-art"> 
+    <div class="menu-buttons">
+        <button class="menu-btn" onclick="startGame()">Start</button>
+        <button class="menu-btn" onclick="exitGame()">Exit</button>
+    </div>
+</div>
+
     <div id="puzzleScreen" style="display: none;">
-        <h3 id="puzzleTitle">AKO SI GREG</h3>
-        <p>HANAPIN MO AKO</p>
+        <div id="puzzleko">
+            <h3 id="puzzleTitle">GREG MATCHING TYPE</h3>
+            <p>HANAPIN MO AKO</p>
+        </div>
 
         <div class="puzzle-container">
             <div class="card" onclick="selectCard(this, 'gregA')">
@@ -48,22 +52,27 @@
         <h1 id="mainTitle">NAHANAP MOKO!!</h1>
         <p id="mainText"></p>
         
-        <button id="gregButton" onclick="showGreg()">Click if you miss Greg</button>
+        <button id="gregButton" onclick="goToLightScreen()">Click To See Greg</button>
         
-        <img id="greg2Img" src="greg2.jpg" alt="Greg 2">
-
-        <div class="picture-area">
-            <button id="escapeBtn" class="menu-btn">EXIT</button>
-            <video id="gregPic" width="500" autoplay muted loop playsinline>
-                <source src="geralvid.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <audio id="gregMusic" src="sound1.mp3" preload="auto" loop></audio>
-        
+        <img id="greg2Img" src="gregpic - Copy.jpg" alt="Greg 2">
     </div>
 
+   
+    <div id="lightScreen" style="display: none;">
+    <div id="flashOverlay"></div>
+
+   
+    <button id="escapeBtn" class="menu-btn">EXIT</button>
+
+    <div class="picture-area">
+        <video id="gregPic" width="500" autoplay muted loop playsinline>
+            <source src="geralvid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <audio id="gregMusic" src="sound1.mp3" preload="auto" loop></audio>
+</div>
     <script src="jas.js"></script>
 </body>
 </html>

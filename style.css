@@ -5,7 +5,15 @@ html, body {
     height: 100%;
     overflow-x: hidden;
 }
-
+#puzzleko {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 1px;
+    font-family: 'Press Start 2P', monospace; 
+    color: #ec1717;
+    text-shadow: 6px 6px 2px rgba(255, 255, 255, 0.979);
+    
+}
 #puzzleScreen {
     text-align: center;
     position: relative;
@@ -13,18 +21,19 @@ html, body {
     height: 100vh;
     margin: 0;
     padding-top: 30px;
-    background-image: url('background.jpg');
+    background-image: url('craftjb.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     box-sizing: border-box;
     overflow: hidden;
 }
+
 #escapeBtn {
-    display: none; /* Hidden by default until the panic mode starts */
+    display: none; 
     position: absolute; 
     transition: transform 0.15s ease-out; 
-    z-index: 99999;
+    z-index: 99999; 
     background-color: rgba(228, 7, 7, 0.9);
 }
 
@@ -78,38 +87,85 @@ html, body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(173, 117, 117, 0.9);
-    display: flex;
+    background-image: url('r2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    display: none; /* Initially hidden */
     box-sizing: border-box;
     overflow: hidden;
 }
 
+#lightScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; 
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.start-pixel-art {
+    width: 120px;
+    height: auto;
+    image-rendering: pixelated; /* Keeps pixel graphics crisp and retro */
+    margin: -20px 0 30px 0;
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.6));
+}
+#flashOverlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; 
+    pointer-events: none; 
+    transition: background-color 0.05s ease;
+}
+
+#lightScreen > *:not(#flashOverlay) {
+    z-index: 2;
+    position: relative;
+}
 #mainTitle {
-    text-align: center;
+    position: absolute;  
+    top: 20px;          
     font-size: 70px;
-    margin: 0 0 20px 0;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 4px 4px 0px rgb(253, 255, 251);
 }
 
 #gregButton {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
+    font-family: 'Press Start 2P', monospace;
     font-size: 30px;
     cursor: pointer;
     border-radius: 10px;
-    background-color: #6fa170;
-    color: white;
+    background: linear-gradient(135deg, #014423, #649169, #57925c);
+    color: rgb(249, 250, 249);
+    text-shadow: 2px 2px 0px rgb(0, 0, 0);
     transition: background-color 0.3s ease;
-    
 }
-
+#gregButton:hover {
+   transform: scale(1.08) translateY(-4px); 
+    background: linear-gradient(135deg, #c41b1b, #b95f16, #994a16);
+    box-shadow: 0 15px 35px rgba(68, 155, 57, 0.8), 0 0 20px rgba(180, 42, 42, 0.8);
+    border-color: #ffffff;
+}
 #greg2Img {
-    width: 500px;
+    width: 350px;
     height: auto;
     max-height: 400px;
     object-fit: middle;
@@ -138,7 +194,10 @@ html, body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(229, 174, 255, 0.8);
+    background-image: url('play.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -147,22 +206,23 @@ html, body {
 }
 
 .menutitle {
-    font-size: 150px;
-    top: 20%;
-    color: rgb(254, 255, 255);
-    text-shadow: 2px 2px 8px rgba(235, 13, 135, 0.7);
-    margin-bottom: 70px;
-
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 80px;                         
+    color: rgb(4, 5, 4);
+    text-shadow: 6px 6px 0px rgba(4, 99, 36, 0.7); 
+    text-align: center;
+    margin-bottom: 80px;
 }
+
 .menu-buttons {
     display: flex;
     flex-direction: column; 
     align-items: center;    
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+    margin-top: 20px;
     gap: 30px;
-
-    
+    padding-bottom: 20px;
 }
 
 .menu-btn {
@@ -170,33 +230,29 @@ html, body {
     width: 290px;
     font-size: 27px;
     font-weight: 800;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    letter-spacing: 6px;
-    gap: 40px;
+    font-family: 'Press Start 2P', monospace; 
+    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(14, 102, 54, 0.8);
     border-radius: 50px; /* Smooth pill shape */
-    background: linear-gradient(135deg, #8709ad, #ab5dd8, #6604f0);
+    background: linear-gradient(135deg, #014423, #649169, #57925c);
     color: #ffffff;
-    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(2, 1, 1, 0.856), inset 0 2px 5px rgba(255, 255, 255, 0.5);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-
 .menu-btn:hover {
     transform: scale(1.08) translateY(-4px); 
-    background: linear-gradient(135deg, #ff2da1, #ff85c4, #ffb18d);
-    box-shadow: 0 15px 35px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, #c41b1b, #b95f16, #994a16);
+    box-shadow: 0 15px 35px rgba(68, 155, 57, 0.8), 0 0 20px rgba(180, 42, 42, 0.8);
     border-color: #ffffff;
 }
 
-
 .menu-btn:active {
     transform: scale(0.98) translateY(1px); 
-    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.6);
+    box-shadow: 0 5px 15px rgba(26, 175, 21, 0.932);
 }
-
 
 @keyframes boxPath {
     0% { transform: translate(0px, 0px); }
