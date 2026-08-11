@@ -3,6 +3,7 @@ var firstSelection = null;
 function startGame() {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("puzzleScreen").style.display = "block";
+    document.getElementById("backgroundMusic").pause();
 }
 
 function exitGame() {
