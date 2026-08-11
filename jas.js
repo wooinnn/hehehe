@@ -1,4 +1,5 @@
 var firstSelection = null;
+
 function startGame() {
     // Hide start screen and show puzzle screen
     document.getElementById("startScreen").style.display = "none";
@@ -6,10 +7,11 @@ function startGame() {
 }
 
 function exitGame() {
-    // Closes window or redirects/displays a goodbye message
-    window.close();
+    // Safe exit fallback since modern browsers block window.close()
     alert("Thanks for playing! You can now close this tab.");
+    window.location.href = "about:blank";
 }
+
 function selectCard(cardElement, cardType) {
     cardElement.style.border = "3px solid gold";
 
@@ -48,10 +50,16 @@ function showGreg() {
     var text = document.getElementById('mainText');
     var greg2 = document.getElementById('greg2Img');
     var partyScreen = document.getElementById('partyScreen');
+    var escapeBtn = document.getElementById('escapeBtn');
 
     greg2.style.display = 'none';
     title.style.display = 'none';
     
+    // Reveal and activate the escaping EXIT button on the party screen
+    escapeBtn.style.display = 'block';
+    escapeBtn.style.left = '50%';
+    escapeBtn.style.top = '75%';
+
     var music = document.getElementById('gregMusic');
     var playPromise = music.play();
 
@@ -62,17 +70,17 @@ function showGreg() {
     }
 
     const messages = [
-        "Lahat kau nakapasa ako lang BAGSAK!!",
-        "Walang Greg dito, baka nasa kusina.",
-        "Error 404: Greg not found (he's eating)",
-        "Miss mo si greg noh",
-        "Gusto mo ba si Greg? Click mo na!"
+        "Warning!!",
+        "Haha Warning",
+        "Warning Nakakabulag!!",
+        "Warning!! Warning!!",
+        "Warning!!",
     ];
 
     const randomIndex = Math.floor(Math.random() * messages.length);
     btn.innerText = messages[randomIndex];
 
-    // Party Light Flash Effect (applied to partyScreen background for visibility)
+    // Party Light Flash Effect
     const partyColors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"];
     setInterval(function() {
         var randomColor = partyColors[Math.floor(Math.random() * partyColors.length)];
@@ -88,3 +96,35 @@ function showGreg() {
 
     img.style.display = "block"; 
 }
+
+// Escaping Exit Button Logic (Runs away from the mouse)
+document.addEventListener('mousemove', (e) => {
+    const escapeBtn = document.getElementById('escapeBtn');
+    if (escapeBtn && escapeBtn.style.display === 'block') {
+        const btnRect = escapeBtn.getBoundingClientRect();
+        
+        const btnX = btnRect.left + btnRect.width / 2;
+        const btnY = btnRect.top + btnRect.height / 2;
+
+        const distanceX = e.clientX - btnX;
+        const distanceY = e.clientY - btnY;
+        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+        // Runs away if mouse gets closer than 120 pixels
+        if (distance < 160) {
+            const randomX = Math.random() * (window.innerWidth - btnRect.width - 50);
+            const randomY = Math.random() * (window.innerHeight - btnRect.height - 50);
+
+            escapeBtn.style.left = `${randomX}px`;
+            escapeBtn.style.top = `${randomY}px`;
+        }
+    }
+});
+
+// Event listener for when they somehow catch and click the escaping exit button
+document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'escapeBtn') {
+        alert("You actually caught it! Exiting...");
+        window.location.href = "about:blank";
+    }
+});
