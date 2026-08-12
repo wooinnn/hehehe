@@ -4,17 +4,18 @@
     <title>GREGY GAMES</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
    <div id="startScreen">
-    <h1 class="menutitle">GREGGY GAMES</h1>
-  <audio id="backgroundMusic" src="music1.mp3" autoplay loop></audio>
- 
-   <img src="https://media.giphy.com/media/gUNA7QH4AeLde/giphy.gif" alt="BMO Pixel Art" class="start-pixel-art"> 
-    <div class="menu-buttons">
-        <button class="menu-btn" onclick="startGame()">Start</button>
-        <button class="menu-btn" onclick="exitGame()">Exit</button>
+    <div id="menuContent">
+        <h1 class="menutitle">GREGGY GAMES</h1>
+        <img src="roblox_greg-removebg-preview.png" class="robloxImg">
+        <div class="menu-buttons">
+            <button class="menu-btn" onclick="startGame()">START</button>
+            <button class="menu-btn" onclick="exitGame()">EXIT</button>
+        </div>
     </div>
 </div>
 
@@ -22,11 +23,11 @@
     <div id="puzzleScreen" style="display: none;">
         <div id="puzzleko">
             <h3 id="puzzleTitle">GREG MATCHING TYPE</h3>
-            <p>HANAPIN MO AKO</p>
+            <p>"HANAPIN MO AKO"</p>
         </div>
 
         <div class="puzzle-container">
-            <div class="card" onclick="selectCard(this, 'gregA')">git reset --mixed HEAD~1
+            <div class="card" onclick="selectCard(this, 'gregA')">
                 <img src="greg.jpg" class="card-img" alt="Greg">
             </div>
             <div class="card" onclick="selectCard(this, 'gregB')">

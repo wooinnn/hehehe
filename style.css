@@ -5,6 +5,7 @@ html, body {
     height: 100%;
     overflow-x: hidden;
 }
+
 #puzzleko {
     text-align: center;
     font-size: 60px;
@@ -12,8 +13,8 @@ html, body {
     font-family: 'Press Start 2P', monospace; 
     color: #ec1717;
     text-shadow: 6px 6px 2px rgba(255, 255, 255, 0.979);
-    
 }
+
 #puzzleScreen {
     text-align: center;
     position: relative;
@@ -115,13 +116,90 @@ html, body {
     box-sizing: border-box;
     overflow: hidden;
 }
-.start-pixel-art {
-    width: 120px;
-    height: auto;
-    image-rendering: pixelated; /* Keeps pixel graphics crisp and retro */
-    margin: -20px 0 30px 0;
-    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.6));
+
+
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('play.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 10000;
 }
+#menuContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+}
+
+.menutitle {
+    transform: translateY(-50px);
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 70px;                             
+    color: rgb(4, 5, 4);
+    text-shadow: 6px 6px 0px rgba(4, 99, 36, 0.7); 
+    text-align: center;
+    margin: 0;
+}
+
+
+
+
+.robloxImg {
+    transform: translateY(-25px);
+    width: 170px; 
+    height: auto;
+}
+
+.menu-buttons {
+   position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.menu-btn {
+    padding: 20px 36px;
+    width: 290px;
+    font-size: 27px;
+    font-weight: 800;
+    font-family: 'Press Start 2P', monospace; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgba(14, 102, 54, 0.8);
+    border-radius: 50px; 
+    background: linear-gradient(135deg, #014423, #649169, #57925c);
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(2, 1, 1, 0.856), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.menu-btn:hover {
+    transform: scale(1.08) translateY(-4px); 
+    background: linear-gradient(135deg, #c41b1b, #b95f16, #994a16);
+    box-shadow: 0 15px 35px rgba(68, 155, 57, 0.8), 0 0 20px rgba(180, 42, 42, 0.8);
+    border-color: #ffffff;
+}
+
+.menu-btn:active {
+    transform: scale(0.98) translateY(1px); 
+    box-shadow: 0 5px 15px rgba(26, 175, 21, 0.932);
+}
+/* =================================== */
+
 #flashOverlay {
     position: fixed; 
     top: 0;
@@ -137,6 +215,7 @@ html, body {
     z-index: 2;
     position: relative;
 }
+
 #mainTitle {
     position: absolute;  
     top: 20px;          
@@ -158,12 +237,14 @@ html, body {
     text-shadow: 2px 2px 0px rgb(0, 0, 0);
     transition: background-color 0.3s ease;
 }
+
 #gregButton:hover {
    transform: scale(1.08) translateY(-4px); 
     background: linear-gradient(135deg, #c41b1b, #b95f16, #994a16);
     box-shadow: 0 15px 35px rgba(68, 155, 57, 0.8), 0 0 20px rgba(180, 42, 42, 0.8);
     border-color: #ffffff;
 }
+
 #greg2Img {
     width: 350px;
     height: auto;
@@ -187,6 +268,7 @@ html, body {
     margin: 0 auto;
     border-radius: 10px;
 }
+
 #lightTitle {
     font-family: 'Press Start 2P', monospace;
     font-size: 100px;
@@ -194,71 +276,6 @@ html, body {
     text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
     text-align: center;
     margin-bottom: 40px;
-}
-#startScreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('play.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.menutitle {
-    font-family: 'Press Start 2P', monospace; 
-    font-size: 80px;                         
-    color: rgb(4, 5, 4);
-    text-shadow: 6px 6px 0px rgba(4, 99, 36, 0.7); 
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.menu-buttons {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    justify-content: center;
-    margin-bottom: 70px;
-    margin-top: 20px;
-    gap: 30px;
-    padding-bottom: 20px;
-}
-
-.menu-btn {
-    padding: 20px 36px;
-    width: 290px;
-    font-size: 27px;
-    font-weight: 800;
-    font-family: 'Press Start 2P', monospace; 
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 2px solid rgba(14, 102, 54, 0.8);
-    border-radius: 50px; /* Smooth pill shape */
-    background: linear-gradient(135deg, #014423, #649169, #57925c);
-    color: #ffffff;
-    box-shadow: 0 10px 25px rgba(2, 1, 1, 0.856), inset 0 2px 5px rgba(255, 255, 255, 0.5);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-}
-
-.menu-btn:hover {
-    transform: scale(1.08) translateY(-4px); 
-    background: linear-gradient(135deg, #c41b1b, #b95f16, #994a16);
-    box-shadow: 0 15px 35px rgba(68, 155, 57, 0.8), 0 0 20px rgba(180, 42, 42, 0.8);
-    border-color: #ffffff;
-}
-
-.menu-btn:active {
-    transform: scale(0.98) translateY(1px); 
-    box-shadow: 0 5px 15px rgba(26, 175, 21, 0.932);
 }
 
 @keyframes boxPath {
