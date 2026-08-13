@@ -4,21 +4,21 @@
     <title>GREGY GAMES</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-   <div id="startScreen">
-    <div id="menuContent">
-        <h1 class="menutitle">GREGGY GAMES</h1>
-        <img src="roblox_greg-removebg-preview.png" class="robloxImg">
-        <div class="menu-buttons">
-            <button class="menu-btn" onclick="startGame()">START</button>
-            <button class="menu-btn" onclick="exitGame()">EXIT</button>
+    <div id="startScreen">
+        <div id="menuContent">
+            <h1 class="menutitle">GREGGY GAMES</h1>
+            <img src="roblox_greg-removebg-preview.png" class="robloxImg">
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="startGame()">START</button>
+                <a href="greggy-simulator.html" style="text-decoration: none;">
+                    <button class="menu-btn">Exit</button>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
 
     <div id="puzzleScreen" style="display: none;">
         <div id="puzzleko">
@@ -49,7 +49,6 @@
         <p id="puzzleMsg" style="font-weight: bold;"></p>
     </div>
 
-    
     <div id="partyScreen" style="display: none;">
         <h1 id="mainTitle">NAHANAP MOKO!!</h1>
         <p id="mainText"></p>
@@ -59,23 +58,23 @@
         <img id="greg2Img" src="gregpic - Copy.jpg" alt="Greg 2">
     </div>
 
-   
     <div id="lightScreen" style="display: none;">
-    <div id="flashOverlay"></div>
- 
-    <h1 id="lightTitle">WARNING!!</h1>
-   
-    <button id="escapeBtn" class="menu-btn">EXIT</button>
+        <div id="flashOverlay"></div>
+     
+        <h1 id="lightTitle">WARNING!!</h1>
+       
+        <button id="escapeBtn" class="menu-btn">EXIT</button>
 
-    <div class="picture-area">
-        <video id="gregPic" width="500" autoplay muted loop playsinline>
-            <source src="geralvid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="picture-area">
+            <video id="gregPic" width="500" autoplay muted loop playsinline>
+                <source src="geralvid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <audio id="gregMusic" src="sound1.mp3" preload="auto" loop></audio>
     </div>
 
-    <audio id="gregMusic" src="sound1.mp3" preload="auto" loop></audio>
-</div>
     <script src="jas.js"></script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Act Like a Statue: Greg's Exam Heist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="simulator-style.css">
+</head>
+<body>
+
+    <div id="gameContainer">
+        <h1 class="game-title">🗿 ACT LIKE A STATUE: EXAM HEIST</h1>
+        
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <div class="controls-info">
+            [A / D] or [ARROWS] MOVE &nbsp;|&nbsp; RELEASE ALL KEYS TO FREEZE! &nbsp;|&nbsp; ⚠️ AVOID SQUEAKY FLOORBOARDS!
+        </div>
+
+        <div class="button-row">
+            <button class="game-btn" id="restartBtn" onclick="restartGame()">🔄 TRY AGAIN</button>
+            <a href="index.html" style="text-decoration: none;">
+                <button class="game-btn">EXIT</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Caught Sound Effect -->
+    <audio id="caughtSound" src="greg.mp3" preload="auto"></audio>
+
+    <script src="simulator-script.js"></script>
+</body>
+</html>
